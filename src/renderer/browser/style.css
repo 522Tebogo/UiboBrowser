@@ -1,0 +1,137 @@
+:root {
+    /* 浅色主题变量 */
+    --title-bar-bg: #DEE1E6;
+    --toolbar-bg: #ffffff;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --tab-inactive-bg: #d1d4d9;
+    --tab-inactive-hover-bg: #e0e3e7;
+    --tab-active-bg: #ffffff;
+    --tab-border-color: #B4B7BC;
+    --address-bar-bg: #f1f3f4;
+    --address-bar-hover-bg: #e8eaed;
+    --address-bar-focus-bg: #ffffff;
+    --button-hover-bg: rgba(0, 0, 0, 0.08);
+    --accent-color: #1a73e8;
+}
+
+body[data-theme='dark'] {
+    /* 深色主题变量 */
+    --title-bar-bg: #202124;
+    --toolbar-bg: #28292d;
+    --text-primary: #e8eaed;
+    --text-secondary: #969ba1;
+    --tab-inactive-bg: #323639;
+    --tab-inactive-hover-bg: #3c4043;
+    --tab-active-bg: #28292d;
+    --tab-border-color: #202124;
+    --address-bar-bg: #202124;
+    --address-bar-hover-bg: #323639;
+    --address-bar-focus-bg: #202124;
+    --button-hover-bg: rgba(255, 255, 255, 0.1);
+    --accent-color: #8ab4f8;
+}
+
+* { box-sizing: border-box; }
+body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: "Segoe UI Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }
+body { background-color: var(--toolbar-bg); }
+
+/* --- 1. 顶部标题栏 & 拖动区域 --- */
+#title-bar {
+    display: flex; align-items: center; height: 40px;
+    background-color: var(--title-bar-bg); padding: 0 8px;
+    -webkit-app-region: drag;
+    transition: background-color 0.3s ease;
+}
+button, input, .tab { -webkit-app-region: no-drag; }
+
+/* --- 2. 标签页系统 --- */
+#tab-bar { flex: 1; display: flex; align-items: flex-end; height: 100%; }
+.tab {
+    display: flex; align-items: center; padding: 0 16px; height: 32px;
+    background-color: var(--tab-inactive-bg);
+    border: 1px solid var(--tab-border-color); border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    margin-right: -1px; cursor: pointer; position: relative;
+    font-size: 13px; max-width: 220px;
+    color: var(--text-secondary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.tab:not(.active):hover { background-color: var(--tab-inactive-hover-bg); }
+.tab.active {
+    background-color: var(--tab-active-bg);
+    color: var(--text-primary);
+    font-weight: 500; z-index: 2; height: 33px; padding-bottom: 1px;
+}
+.tab-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tab-close-btn {
+    background: none; border: none; border-radius: 50%; cursor: pointer;
+    width: 20px; height: 20px; margin-left: 8px; padding: 0; font-size: 16px;
+    line-height: 20px; text-align: center; color: var(--text-secondary);
+}
+.tab-close-btn:hover { background-color: #f28b82; color: #202124; }
+#add-tab-btn {
+    width: 28px; height: 28px; font-size: 20px; font-weight: normal; color: var(--text-secondary);
+    background: none; border: none; border-radius: 50%; margin-left: 4px; margin-bottom: 2px;
+    padding: 0; line-height: 28px; text-align: center;
+}
+#add-tab-btn:hover { background-color: var(--tab-inactive-bg); }
+
+/* --- 3. 第二行工具栏 --- */
+#controls {
+    display: flex; align-items: center; padding: 6px 14px;
+    background-color: var(--toolbar-bg); position: relative; z-index: 1;
+    border-bottom: 1px solid var(--tab-border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+#nav-buttons { display: flex; margin-right: 8px; }
+.nav-btn {
+    background: none; border: none; padding: 6px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s ease; color: var(--text-secondary);
+}
+.nav-btn:hover { background-color: var(--button-hover-bg); }
+.nav-btn:disabled { color: #bdc1c6; cursor: not-allowed; background-color: transparent; }
+.nav-btn svg { width: 20px; height: 20px; }
+
+/* 主题切换按钮 */
+.theme-btn {
+    background: none; border: none; padding: 6px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary); margin-right: 8px;
+    transition: background-color 0.2s ease;
+}
+.theme-btn:hover { background-color: var(--button-hover-bg); }
+
+#address-bar {
+    flex: 1; height: 32px; padding: 0 16px;
+    border-radius: 4px; /* 科技感方角 */
+    border: 1px solid transparent;
+    background-color: var(--address-bar-bg);
+    font-size: 14px; outline: none;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+}
+#address-bar:hover { background-color: var(--address-bar-hover-bg); }
+#address-bar:focus {
+    background-color: var(--address-bar-focus-bg);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+
+/* --- 4. 窗口控制按钮 --- */
+#window-controls { display: flex; align-items: center; }
+.window-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 45px; height: 30px; background: none; border: none;
+    border-radius: 5px; padding: 0; color: var(--text-secondary);
+    cursor: pointer; transition: background-color 0.15s ease;
+}
+.window-btn svg { width: 11px; height: 11px; stroke: currentColor; }
+.window-btn:hover { background-color: var(--button-hover-bg); }
+#close-btn:hover { background-color: #e81123; color: white; }
+
+/* --- 5. 内容区 --- */
+#webview-container { width: 100%; height: calc(100% - 40px - 45px); background-color: var(--toolbar-bg); }
+webview { position: absolute; width: 100%; height: 100%; visibility: hidden; }
+webview.active { visibility: visible; }
