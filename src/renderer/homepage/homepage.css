@@ -69,6 +69,11 @@ body {
     align-items: center;
     gap: 8px;
 }
+#logotop{
+    margin-right: 40px;
+    margin-bottom: -10px;
+    width: 800;
+}
 
 .search-engine-icon {
     width: 20px;
