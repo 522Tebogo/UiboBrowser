@@ -1,6 +1,3 @@
-好的，这是 `README.md` 文件的完整 Markdown 格式内容。
-
-你可以直接复制下面代码框中的所有文本，然后粘贴到一个名为 `README.md` 的新文件中。
 
 ```markdown
 # UiboBrowser
