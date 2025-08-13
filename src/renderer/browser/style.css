@@ -1,5 +1,4 @@
 :root {
-    /* 浅色主题变量 */
     --title-bar-bg: #DEE1E6;
     --toolbar-bg: #ffffff;
     --text-primary: #202124;
@@ -16,7 +15,6 @@
 }
 
 body[data-theme='dark'] {
-    /* 深色主题变量 */
     --title-bar-bg: #202124;
     --toolbar-bg: #28292d;
     --text-primary: #e8eaed;
@@ -36,7 +34,7 @@ body[data-theme='dark'] {
 body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: "Segoe UI Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif; }
 body { background-color: var(--toolbar-bg); }
 
-/* --- 1. 顶部标题栏 & 拖动区域 --- */
+
 #title-bar {
     display: flex; align-items: center; height: 40px;
     background-color: var(--title-bar-bg); padding: 0 8px;
@@ -45,7 +43,7 @@ body { background-color: var(--toolbar-bg); }
 }
 button, input, .tab { -webkit-app-region: no-drag; }
 
-/* --- 2. 标签页系统 --- */
+
 #tab-bar { flex: 1; display: flex; align-items: flex-end; height: 100%; }
 .tab {
     display: flex; align-items: center; padding: 0 16px; height: 32px;
@@ -77,7 +75,7 @@ button, input, .tab { -webkit-app-region: no-drag; }
 }
 #add-tab-btn:hover { background-color: var(--tab-inactive-bg); }
 
-/* --- 3. 第二行工具栏 --- */
+
 #controls {
     display: flex; align-items: center; padding: 6px 14px;
     background-color: var(--toolbar-bg); position: relative; z-index: 1;
@@ -94,7 +92,7 @@ button, input, .tab { -webkit-app-region: no-drag; }
 .nav-btn:disabled { color: #bdc1c6; cursor: not-allowed; background-color: transparent; }
 .nav-btn svg { width: 20px; height: 20px; }
 
-/* 主题切换按钮 */
+
 .theme-btn {
     background: none; border: none; padding: 6px; border-radius: 50%;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -105,7 +103,7 @@ button, input, .tab { -webkit-app-region: no-drag; }
 
 #address-bar {
     flex: 1; height: 32px; padding: 0 16px;
-    border-radius: 4px; /* 科技感方角 */
+    border-radius: 4px; 
     border: 1px solid transparent;
     background-color: var(--address-bar-bg);
     font-size: 14px; outline: none;
@@ -119,7 +117,6 @@ button, input, .tab { -webkit-app-region: no-drag; }
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color) 20%, transparent);
 }
 
-/* --- 4. 窗口控制按钮 --- */
 #window-controls { display: flex; align-items: center; }
 .window-btn {
     display: inline-flex; align-items: center; justify-content: center;
@@ -131,7 +128,6 @@ button, input, .tab { -webkit-app-region: no-drag; }
 .window-btn:hover { background-color: var(--button-hover-bg); }
 #close-btn:hover { background-color: #e81123; color: white; }
 
-/* --- 5. 内容区 --- */
 #webview-container { width: 100%; height: calc(100% - 40px - 45px); background-color: var(--toolbar-bg); }
 webview { position: absolute; width: 100%; height: 100%; visibility: hidden; }
 webview.active { visibility: visible; }

@@ -144,7 +144,6 @@ addTabBtn.addEventListener('click', async () => {
     createNewTab(currentEngine.homeUrl);
 });
 
-// --- 主题切换逻辑 ---
 async function setupTheme() {
     const savedTheme = await window.electronAPI.getTheme();
     document.body.dataset.theme = savedTheme;
@@ -169,7 +168,6 @@ themeToggleBtn.addEventListener('click', () => {
     updateThemeIcons(newTheme);
 });
 
-// --- 窗口控制按钮事件 ---
 const minimizeBtn = document.getElementById('minimize-btn');
 const maximizeBtn = document.getElementById('maximize-btn');
 const closeBtn = document.getElementById('close-btn');
@@ -188,7 +186,6 @@ window.electronAPI.onWindowUnmaximized(() => {
   restoreIcon.style.display = 'none';
 });
 
-// --- 初始化逻辑 ---
 let initialTabCreated = false;
 
 window.electronAPI.onLoadInitialURL((url) => {
@@ -205,4 +202,4 @@ setTimeout(() => {
     }
 }, 500);
 
-setupTheme(); // 在初始化最后调用
+setupTheme(); 

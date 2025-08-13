@@ -44,7 +44,6 @@ searchInput.addEventListener('keydown', (e) => {
     }
 });
 
-// --- 主题切换逻辑 ---
 async function setupTheme() {
     const savedTheme = await window.electronAPI.getTheme();
     document.body.dataset.theme = savedTheme;
@@ -70,7 +69,6 @@ themeToggleBtn.addEventListener('click', () => {
 });
 
 
-// --- 窗口控制按钮 ---
 const minimizeBtn = document.getElementById('minimize-btn-hp');
 const maximizeBtn = document.getElementById('maximize-btn-hp');
 const closeBtn = document.getElementById('close-btn-hp');

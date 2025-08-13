@@ -1,5 +1,4 @@
 :root {
-    /* 浅色主题变量 */
     --bg-color: #f9f9f9;
     --text-color: #333;
     --footer-color: #888;
@@ -13,7 +12,6 @@
 }
 
 body[data-theme='dark'] {
-    /* 深色主题变量 */
     --bg-color: #1e1e1e;
     --text-color: #d7dadc;
     --footer-color: #818384;
@@ -175,7 +173,6 @@ h1 {
     color: white;
 }
 
-/* 主题切换按钮 */
 .theme-btn {
     background: none;
     border: none;

@@ -4,7 +4,6 @@ const contextMenu = require('electron-context-menu');
 
 let store;
 
-// 优化数据结构：为每个搜索引擎添加 homeUrl 属性
 const searchEngines = [
     { name: 'Google',      url: 'https://www.google.com/search?q={s}',     homeUrl: 'https://www.google.com' },
     { name: 'Bing 中国版', url: 'https://cn.bing.com/search?q={s}',        homeUrl: 'https://cn.bing.com' },
@@ -56,7 +55,6 @@ function createHomepageWindow() {
 app.whenReady().then(async () => {
     const { default: Store } = await import('electron-store');
     
-    // 移除 store 中的 newTabUrl 默认设置
     store = new Store({
         defaults: {
             searchEngine: 'https://www.google.com/search?q={s}'
@@ -74,7 +72,6 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
-// --- IPC 事件监听 ---
 ipcMain.on('open-search-results', (event, url) => {
   const newBrowserWindow = createBrowserWindow();
   newBrowserWindow.webContents.once('did-finish-load', () => {
@@ -86,7 +83,6 @@ ipcMain.on('open-search-results', (event, url) => {
 
 ipcMain.handle('get-search-engines', () => searchEngines);
 
-// 优化：让 get-current-search-engine 返回完整的对象
 ipcMain.handle('get-current-search-engine', () => {
     const currentSearchUrl = store.get('searchEngine');
     return searchEngines.find(engine => engine.url === currentSearchUrl) || searchEngines[0];
@@ -96,7 +92,6 @@ ipcMain.on('set-current-search-engine', (event, url) => {
     store.set('searchEngine', url);
 });
 
-// 窗口控制事件
 ipcMain.on('minimize-window', () => BrowserWindow.getFocusedWindow()?.minimize());
 ipcMain.on('maximize-window', () => {
   const win = BrowserWindow.getFocusedWindow();
