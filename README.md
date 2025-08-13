@@ -1,10 +1,16 @@
+<style>
+   .pic{
+      width:60px,
+      height:60px
+   }
+   <style>
 
 # UiboBrowser
 
 一款基于 Electron 构建的、高度可定制的现代化桌面浏览器。
 
-![UiboBrowser 截图](src/assets/screenshot.png)
-*(提示: 请将你应用的截图命名为 `screenshot.png` 并放置在 `src/assets/` 目录下，以替换此处的预览图)*
+<div class ="pic">![UiboBrowser 截图](src/assets/screenshot.png)</div>
+
 
 ##  功能特性
 
