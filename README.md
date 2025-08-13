@@ -41,25 +41,6 @@
 
 项目源代码统一存放在 `src` 目录下，结构清晰，便于维护。
 
-```
-
-src/
-├── assets/          // (可选) 未来用于存放图片、字体等静态资源
-├── main/
-│   └── index.js     // 主进程逻辑
-├── preload/
-│   └── index.js     // 预加载脚本 (主进程与渲染进程的桥梁)
-└── renderer/
-├── browser/     // 浏览器主窗口的相关文件
-│   ├── index.html
-│   ├── renderer.js
-│   └── style.css
-└── homepage/    // 主页窗口的相关文件
-├── homepage.html
-├── homepage.js
-└── homepage.css
-
-````
 
 ##  如何运行
 
