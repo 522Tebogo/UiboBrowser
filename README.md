@@ -3,7 +3,7 @@
 
 一款基于 Electron 构建的、高度可定制的现代化桌面浏览器。
 
-<div style="width:60px;height:60px">![UiboBrowser 截图](src/assets/screenshot.png)</div>
+![UiboBrowser 截图](src/assets/screenshot.png)</div>
 
 
 ##  功能特性
